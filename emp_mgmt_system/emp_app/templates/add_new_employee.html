@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+</head>
+<body>
+    <h1>Add an Employee</h1>
+    <form action="/add_new_employee" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="firstname"> First Name </label> 
+            <input type="text" id="firstname" name="firstname" value="{{ firstname }}" placeholder="Enter a first name">
+        </div>
+        <div>
+            <label for="lastname"> Last Name </label> 
+            <input type="text" id="lastname" name="lastname" value="{{ lastname }}" placeholder="Enter a Last name">
+        </div>
+        <div>
+            <label for="salary"> Salary </label>
+             <input type="number" id="salary" name="salary" value="{{ salary }}" placeholder="Enter a Salary">
+        </div>
+        <div>
+            <label for="dept">departments</label>
+            <select name="dept" id="dept">
+                {% for dept in all_dept %}
+            <option value="{{dept.id}}">{{dept.name}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="role">role</label>
+            <select name="role" id="role">
+                {% for r in all_role %}
+            <option value="{{r.id}}">{{r.name}}</option>
+            {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label for="bonus"> Bonus </label>
+             <input type="number" id="bonus" name="bonus" value="{{ bonus }}" placeholder="Enter a bonus">
+        </div>
+        <div>
+            <label for="phone"> Phone no </label> 
+            <input type="number" id="phone" name= "phone" value="{{ phone }}" placeholder="Enter a mobile no">
+        </div>
+        
+        <input type="submit">
+        <input type="reset">
+    </form>
+</body>
+</html>

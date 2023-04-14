@@ -1,0 +1,64 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All employees</title>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        th, td {
+          text-align: left;
+          padding: 8px;
+          border: 1px solid black;
+        }
+      </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Employees are</h1>
+    <hr>
+    <table class="table",border="1">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">firstname</th>
+                <th scope="col">lastname</th>
+                <th scope="col">dept</th>
+                <th scope="col">Location</th>
+                <th scope="col">salary</th>
+                <th scope="col">bonus</th>
+                <th scope="col">role</th>
+                <th scope="col">phone</th>
+                <th scope="col">hire_date</th>
+            </tr>
+            
+        </thead>
+            {% for e in all_emp %}
+        <tbody>
+            <tr>
+                <th scope="row">{{e.id}}</th>
+                <td>{{e.firstname}}</td>
+                <td>{{e.lastname}}</td>
+                <td>{{e.dept.name}}</td>
+                <td>{{e.dept.location}}</td>
+                <td>{{e.salary}}</td>
+                <td>{{e.bonus}}</td>
+                <td>{{e.role.name}}</td>
+                <td>{{e.phone}}</td>
+                <td>{{e.hire_date}}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+    </div>
+</body>
+</html>
+
+
